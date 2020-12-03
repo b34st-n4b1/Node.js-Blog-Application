@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+   
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="blogs content">
+        <h1> All Blogs </h1>
+       
+        <% if(blogs.length > 0) { %>
+            <% blogs.forEach(blog => { %>
+                <a class="single" href="/blogs/<%= blog._id %>">
+                <div class="w3-container">
+                    <div class="w3-panel w3-light-grey w3-leftbar w3-border-grey">
+                <h2 class="title"><%= blog.title %></h2>
+                <p class="snippet"><%= blog.snippet %></p>
+                    </div>
+                </div>
+            </a>
+           <% }) %>
+
+      <%  } else { %>
+
+        <h3>there are no blogs to display....</h3>
+
+        <% } %>
+
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
